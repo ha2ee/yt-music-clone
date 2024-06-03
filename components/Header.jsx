@@ -18,6 +18,7 @@ import {
 import Logo from "./elements/Logo";
 import Navigator from "./elements/Navigator";
 import { cn } from "@/lib/utils";
+import useUIState from "@/hooks/useUIState";
 
 const HeaderDrawer = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Header = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const headRef = useRef();
-
+  const { headerImageSrc } = useUIState();
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const scrollValue = headRef.current.scrollTop;
@@ -79,7 +80,10 @@ const Header = ({ children }) => {
         <div className="relative h-[400px] w-full">
           <Image
             fill
-            src={"https://images.unsplash.com/photo-1707833558984-3293e794031c"}
+            src={
+              headerImageSrc ||
+              "https://images.unsplash.com/photo-1707833558984-3293e794031c"
+            }
             alt="mediaItem"
             className="object-cover"
           />
