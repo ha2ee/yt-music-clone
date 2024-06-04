@@ -18,3 +18,20 @@ export function getRandomElementFromArray(arr: any[]) {
   const len = arr.length;
   return arr[getRandomInt(0, len - 1)];
 }
+
+export function chunkArray<T>(arr: T[], chunkSize: number) {
+  const resultArray = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    resultArray.push(chunk);
+  }
+
+  return resultArray;
+  // return Array.from({ length: Math.ceil(arr.length / chunkSize) }, (_, i) =>
+  //   arr.slice(i * chunkSize, i * chunkSize + chunkSize)
+  // );
+}
+
+export function generateRandomHex() {
+  return "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
+}

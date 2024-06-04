@@ -1,10 +1,10 @@
+import Header from "@/components/Header";
 import React from "react";
 
-const layout = ({ children }) => {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-      layout먼저
-      {children}
+    <div className="w-full h-full">
+      <Header>{children}</Header>
     </div>
   );
 };
