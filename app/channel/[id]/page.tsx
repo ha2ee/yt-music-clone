@@ -1,6 +1,12 @@
 import React from "react";
 
-const page = async (props) => {
+interface ChannelPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const page = async (props: ChannelPageProps) => {
   return <div>channel/[{props.params.id}]</div>;
 };
 
